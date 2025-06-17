@@ -13,19 +13,19 @@ const LoginPage = ({ onLogin }) => {
 
     setLoading(true);
     try {
-      const response = await fetch("https://my-backend.onrender.com/login", {
+      const response = await fetch("https://my-backend-w3e6.onrender.com/login", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
         alert('✅ Kirish muvaffaqiyatli!');
-        onLogin(); // App.jsx orqali MainPage ga o'tish
+        onLogin(); // App.jsx orqali MainPage ga o'tamiz
       } else {
-        alert(data.message || '❌ Xatolik yuz berdi.');
+        alert(data.message || 'Xatolik yuz berdi.');
       }
     } catch (error) {
       console.error('Server xatoligi:', error);
@@ -37,11 +37,13 @@ const LoginPage = ({ onLogin }) => {
 
   return (
     <div className="login-container">
+      {/* Orqa fon video */}
       <video autoPlay muted loop id="bg-video">
         <source src="/videos/login-bg2.mp4" type="video/mp4" />
         Sizning brauzeringiz video formatini qo‘llab-quvvatlamaydi.
       </video>
 
+      {/* Kirish formasi */}
       <div className="login-form">
         <h2>Kirish sahifasi</h2>
         <input
