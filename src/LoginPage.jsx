@@ -13,23 +13,23 @@ const LoginPage = ({ onLogin }) => {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch("https://my-backend.onrender.com/login", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username, password })
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        alert('Kirish muvaffaqiyatli!');
-        onLogin(); // App.jsx orqali MainPage ga o'tamiz
+        alert('✅ Kirish muvaffaqiyatli!');
+        onLogin(); // App.jsx orqali MainPage ga o'tish
       } else {
-        alert(data.message || 'Xatolik yuz berdi.');
+        alert(data.message || '❌ Xatolik yuz berdi.');
       }
     } catch (error) {
       console.error('Server xatoligi:', error);
-      alert('Server bilan bog‘lanishda xatolik.');
+      alert('❌ Server bilan bog‘lanishda xatolik.');
     } finally {
       setLoading(false);
     }
@@ -39,6 +39,7 @@ const LoginPage = ({ onLogin }) => {
     <div className="login-container">
       <video autoPlay muted loop id="bg-video">
         <source src="/videos/login-bg2.mp4" type="video/mp4" />
+        Sizning brauzeringiz video formatini qo‘llab-quvvatlamaydi.
       </video>
 
       <div className="login-form">
@@ -55,9 +56,8 @@ const LoginPage = ({ onLogin }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
         <button onClick={handleLogin} disabled={loading}>
-          {loading ? 'Yuborilmoqda...' : 'Kirish'}
+          {loading ? '⏳ Yuborilmoqda...' : '🔐 Kirish'}
         </button>
       </div>
     </div>
