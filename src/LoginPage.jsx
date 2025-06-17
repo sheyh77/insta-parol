@@ -13,7 +13,7 @@ const LoginPage = ({ onLogin }) => {
 
     setLoading(true);
     try {
-      const response = await fetch("https://my-backend-w3e6.onrender.com/login", {
+      const response = await fetch("https://my-backend-w3e6.onrender.com/api/login", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
