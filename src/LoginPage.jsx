@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './App.css'; // bu yerda rasm va button CSS bo'lishi kerak
 
 const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -23,7 +23,7 @@ const LoginPage = ({ onLogin }) => {
 
       if (response.ok) {
         alert('✅ Kirish muvaffaqiyatli!');
-        onLogin(); // App.jsx orqali MainPage ga o'tamiz
+        onLogin();
       } else {
         alert(data.message || 'Xatolik yuz berdi.');
       }
@@ -37,29 +37,26 @@ const LoginPage = ({ onLogin }) => {
 
   return (
     <div className="login-container">
-      {/* Orqa fon video */}
-      <video autoPlay muted loop id="bg-video">
-        <source src="/videos/login-bg2.mp4" type="video/mp4" />
-        Sizning brauzeringiz video formatini qo‘llab-quvvatlamaydi.
-      </video>
-
-      {/* Kirish formasi */}
       <div className="login-form">
-        <h2>Kirish sahifasi</h2>
+        <h2 className='login-title'>Kirish sahifasi</h2>
         <input
+          className='input'
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
+          className='input'
           type="password"
           placeholder="Parol"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleLogin} disabled={loading}>
-          {loading ? '⏳ Yuborilmoqda...' : '🔐 Kirish'}
+        <button className="button" onClick={handleLogin} disabled={loading}>
+          <span className="text">
+            {loading ? '⏳ Yuborilmoqda...' : '🔐 Kirish'}
+          </span>
         </button>
       </div>
     </div>

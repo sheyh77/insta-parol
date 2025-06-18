@@ -10,12 +10,6 @@ const MainPage = () => {
 
   return (
     <div className="main-container">
-      {/* Orqa fon video */}
-      <video autoPlay muted loop className="background-video">
-        <source src="/videos/main-bg.mp4" type="video/mp4" />
-        Sizning brauzeringiz video formatini qo‘llab-quvvatlamaydi.
-      </video>
-
       {/* Kontent */}
       <div className="content">
         <h1 className="title">Obunachilar xizmatlari</h1>
