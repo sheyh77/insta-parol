@@ -8,7 +8,7 @@ const LoginPage = ({ onLogin }) => {
 
   const handleLogin = async () => {
     if (!username || !password) {
-      return alert('Iltimos, username va parolni kiriting.');
+      return alert('Iltimos, username va parolni kiriting');
     }
 
     setLoading(true);
